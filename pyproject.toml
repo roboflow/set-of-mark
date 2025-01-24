@@ -49,7 +49,8 @@ dependencies = [
     "typer>=0.12.5",
     "jiwer>=3.0.4",
     "evaluate>=0.4.3",
-    "sacrebleu>=2.3.0"
+    "sacrebleu>=2.3.0",
+    "pillow>=9.4",
 ]
 
 [project.urls]
@@ -74,10 +75,17 @@ dev = [
     "ruff>=0.6.5,<0.10.0",
     "tox>=4.18.1,<4.25.0"
 ]
-florence_2 = [
+florence2 = [
+    "peft>=0.12,<0.14",
     "transformers>=4.43.0",
     "torch>=2.4.0",
     "flash-attn>=2.7.0.post2; sys_platform != 'darwin'"
+]
+paligemma2 = [
+    "peft>=0.12,<0.14",
+    "torch>=2.4.0",
+    "transformers>=4.48.0",
+    "bitsandbytes>=0.45.0"
 ]
 
 [project.scripts]

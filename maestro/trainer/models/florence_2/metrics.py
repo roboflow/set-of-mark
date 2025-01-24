@@ -5,7 +5,7 @@ import supervision as sv
 from PIL import Image
 from transformers import AutoProcessor
 
-from maestro.trainer.common.data_loaders.datasets import DetectionDataset
+from maestro.trainer.common.data_loaders.datasets import RoboflowJSONLDataset
 
 DETECTION_CLASS_PATTERN = r"([a-zA-Z0-9 -]+)<loc_\d+>"
 
@@ -59,10 +59,11 @@ def process_output_for_text_metric(
     return predictions
 
 
-def get_unique_detection_classes(dataset: DetectionDataset) -> list[str]:
+def get_unique_detection_classes(dataset: RoboflowJSONLDataset) -> list[str]:
     class_set = set()
     for i in range(len(dataset)):
-        _, suffix, _ = dataset[i]
+        image, data = dataset[i]
+        suffix = data["suffix"]
         classes = re.findall(DETECTION_CLASS_PATTERN, suffix)
         class_set.update(classes)
     return sorted(class_set)

@@ -7,19 +7,16 @@ from maestro.cli.utils import str2bool
 
 
 def find_training_recipes(app: typer.Typer) -> None:
-    try:
-        from maestro.trainer.models.florence_2.entrypoint import florence_2_app
+    from maestro.trainer.models.florence_2.entrypoint import florence_2_app
 
-        app.add_typer(florence_2_app, name="florence2")
-    except Exception:
-        _warn_about_recipe_import_error(model_name="Florence 2")
+    app.add_typer(florence_2_app, name="florence2")
 
     # try:
-    #     from maestro.trainer.models.paligemma.entrypoint import paligemma_app
+    #     from maestro.trainer.models.florence_2.entrypoint import florence_2_app
     #
-    #     app.add_typer(paligemma_app, name="paligemma")
+    #     app.add_typer(florence_2_app, name="florence2")
     # except Exception:
-    #     _warn_about_recipe_import_error(model_name="PaliGemma")
+    #     _warn_about_recipe_import_error(model_name="Florence 2")
 
 
 def _warn_about_recipe_import_error(model_name: str) -> None:
