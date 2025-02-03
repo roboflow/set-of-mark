@@ -78,7 +78,7 @@ florence_2 = [
 paligemma_2 = [
     "peft>=0.12",
     "torch>=2.4.0",
-    "transformers>=4.48.0",
+    "transformers<4.48.0", # does not work with 4.49.*
     "bitsandbytes>=0.45.0"
 ]
 qwen_2_5_vl = [
@@ -88,7 +88,7 @@ qwen_2_5_vl = [
     "torchvision>=0.20.0",
     "transformers @ git+https://github.com/huggingface/transformers",
     "bitsandbytes>=0.45.0",
-    "qwen-vl-utils==0.0.8"
+    "qwen-vl-utils>=0.0.8"
 ]
 
 [project.scripts]

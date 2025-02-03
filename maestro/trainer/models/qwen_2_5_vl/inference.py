@@ -94,7 +94,7 @@ def predict(
     image_inputs, _ = process_vision_info(conversation)
 
     inputs = processor(
-        text=[text],
+        text=text,
         images=image_inputs,
         return_tensors="pt",
     )
